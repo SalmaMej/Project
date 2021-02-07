@@ -1,0 +1,4 @@
+{
+ "mongoURI": "mongodb+srv://nada123:nada123@cluster1.t4cy1.mongodb.net/db1?retryWrites=true&w=majority",
+ "jwtSecret":"mysecret"
+}
