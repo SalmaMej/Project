@@ -4,7 +4,8 @@ import {Form,Button} from 'react-bootstrap';
 
 function Login(){
     return(
-<div>
+     
+<div className='form'>
   <h1> Sign In </h1>
   
  <Form>
@@ -26,6 +27,7 @@ function Login(){
    <Link to="/register"> Sign Up</Link>
  </p>
 </div>
+
 )
 }
 export default Login;

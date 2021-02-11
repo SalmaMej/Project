@@ -7,24 +7,27 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './App.css';
 
 
 function App() {
   return (
   <Router>
-    <div>
+    
       <Navbar/>  
+      <div className="cont">
       <Route exact path='/' component={Landing}/>
-      <section className='container'>
+      
         <Switch>
           <Route exact path='/register' component={Register}/>
           <Route exact path='/login' component={Login}/>
         </Switch>
 
-      </section>
+      
+      </div>
 
-    </div>
+    
   </Router> 
   );
 }
