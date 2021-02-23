@@ -5,7 +5,7 @@ import {setAlert} from '../../actions/alert';
 import {register} from '../../actions/auth';
 
 import {Form,Button} from 'react-bootstrap';
-import { propTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 
 function Register({setAlert,register}){
   const [formData, setFormData] = useState({
@@ -68,10 +68,8 @@ function Register({setAlert,register}){
  </p>
 </div>
 );
-
-Register.propTypes ={
-  setAlert: propTypes.func.isRequired,
-  register: propTypes.func.isRequired,
-}
 };
+Register.propTypes ={
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,}
 export default connect(null, {setAlert,register})(Register);
