@@ -2,10 +2,12 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {setAlert} from '../../actions/alert';
-import Alert from '../layout/Alert';
-import {Form,Button} from 'react-bootstrap';
+import {register} from '../../actions/auth';
 
-function Register(props){
+import {Form,Button} from 'react-bootstrap';
+import { propTypes } from 'prop-types';
+
+function Register({setAlert,register}){
   const [formData, setFormData] = useState({
     name:'',
     email:'',
@@ -20,8 +22,8 @@ function Register(props){
   const onSubmit = e => {
     e.preventDefault();
     if (password !== password2){
-      props.setAlert('Passwords do not match');} else {
-        console.log(formData);
+      setAlert('Passwords do not match');} else {
+        register({name, email, password });
       }
     };
   
@@ -54,7 +56,7 @@ function Register(props){
     <Form.Label>Confirm Password</Form.Label>
     <Form.Control type="password" placeholder="Confirm your password" name='password2' value={password2} onChange={e=> onChange(e)} />
   </Form.Group>
-  <Alert/>
+ 
   <br/>
   <Button variant="primary" type="submit">
     Register
@@ -65,7 +67,11 @@ function Register(props){
    <Link to="/login"> Sign In</Link>
  </p>
 </div>
+);
 
-)
+Register.propTypes ={
+  setAlert: propTypes.func.isRequired,
+  register: propTypes.func.isRequired,
+}
 };
-export default connect(null, {setAlert})(Register);
+export default connect(null, {setAlert,register})(Register);

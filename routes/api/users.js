@@ -6,14 +6,14 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 
-const User = require('../models/User');
+const User = require('../../models/User');
 
 router.post('/',
 [
 check('name','name is required')
 .notEmpty(),
 check('email','Please include a valid email').isEmail(),
-check('password','Please enter a password woth 6 or more characters')
+check('password','Please enter a password with 6 or more characters')
 .isLength({min:6})
 ],
  async (req,res)=>{
@@ -57,8 +57,9 @@ check('password','Please enter a password woth 6 or more characters')
 
      // Return jsonwebtoken
      const payload = {
+         user:{
          id: user.id
-     }
+     }};
 
      jwt.sign(payload, config.get('jwtSecret'),
       { expiresIn: 360000},
@@ -67,8 +68,7 @@ check('password','Please enter a password woth 6 or more characters')
           res.json({token});
       }    
      );
-     
-    
+         
 
  } catch (err) {
     console.error(err.message);

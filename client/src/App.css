@@ -58,9 +58,9 @@ li {
   border-radius: 40%;
 }
 img {
-  width: 50px;
-  height: 60px;
-  border-radius: 40%;
+
+  height: 200px;
+  
 }
 
 .landing {
@@ -97,5 +97,39 @@ img {
   /*border : 2px solid red;*/
   display: flex;
   justify-content: center;
- 
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  width: 100%;
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(37, 39, 39, 0.795);
+  width: 100%;
+  align-items: center;
+}
+
+.total {
+  border-radius: 7px;
+  width: 500px ;
+  padding: 20px;
+  margin: 30px;
+  background-color:rgba(240, 248, 255, 0.74) ;
+}
+.alert{
+  background-color: rgb(228, 41, 41);
+  color:white;
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding: 8px;
+  width: 450px;
+
+  
 }
